@@ -61,14 +61,13 @@ Para medir as qualidades de complexidade e entropia, utilizamos a [Complexidade 
   
   ## Mutação
   
-Para cada indivíduo de uma geração, é sorteada um valor entre -1 e 1. Se esse valor for menor que a probabilidade de uma mutação, o indivíduo sofre uma mutação que altera simultaneamente a sequência de notas de três formas distintas, sendo elas:
+Para cada indivíduo de uma geração, é sorteada um valor entre -1 e 1. Se esse valor for menor que a probabilidade de uma mutação, o indivíduo sofre uma mutação que altera seguidamente a sequência de notas de duas formas distintas, sendo elas:
 
-### Permutação
-O algoritmo seleciona duas notas do indivíduo e troca as duas de posição entre si.
-### Troca
+### Troca:
 O algoritmo seleciona uma nota do indivíduo e troca por outra nota qualquer.
-### Inversão
-O algoritmo seleciona uma sequência de três notas e inverte ela com a sequência de três notas anteriores. 
+
+### Substituição:
+O algoritmo seleciona uma sequência de 5 notas, sendo a do meio a nota alterada anteriormente, após isso, copia essa sequência e substitui a sequencia de 5 notas anterior ou seguinte a esse, pelas 5 notas selecionadas. Criando um looping dessas 5 notas, fazendo-as se repetirem. 
   
   ## Atualização do Hall da Fama
   
