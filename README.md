@@ -57,7 +57,9 @@ Para medir as qualidades de complexidade e entropia, utilizamos a [Complexidade 
   
   ## Cruzamento
 
-  lorem ipsum
+O cruzamento é baseado no heuristic crossover. O cruzamento recebe 4 parâmetros: _music_p_, _music_m_, _n_, _chance_de_cruzamento_. As duas primeiras são as duas listas que gerarão outros dois filhos, n será o das sublistas que serão segmentados dos pais e chance de cruzamento é um float que representa o seu nome.
+
+Então a ordem lógica dessa função é 1. segmentar os pais em pedaços de tamanho n. 2. Ordenar esses segmentos em duas listas, uma de maior entropia a menor entropia e outra de menor complexidade a maior complexidade, do pai e da mãe respectivamente. 3. Juntar em uma lista uma mistura listrada da mãe e do pai, uma de menor complexidade, e uma de maior entropia. 4. Diminuir essas listas para que se crie dois filhos, um de maior entropia e outro de menor complexidade.
   
   ## Mutação
   
