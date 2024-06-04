@@ -3,7 +3,9 @@
 
 ## Bem-vindo(a)!
 
-"Imagine um macaco pianista que escolhe teclas aleatórias num piano por um tempo indefinido. Eventualmente, ele irá tocar todas as músicas que já foram ou já serão inventadas em todo o mundo." 
+<div style="text-align: left;">
+_"Imagine um macaco pianista que escolhe teclas aleatórias num piano por um tempo indefinido. Eventualmente, ele irá tocar todas as músicas que já foram ou já serão inventadas em todo o mundo."_
+</div>
 
 Nesse repositório, desenvolvemos um Algoritmo Genético que, a partir de uma população inicial de canções, gera novas músicas de maneira a encontrar a melhor. Como parâmetro para a qualidade da melodia, utilizamos a razão entropia/complexidade. Para mais detalhes, vide seção [inserir seção]. 
 
