@@ -200,37 +200,32 @@ def cruzamento_semi_heuristico(music_p, music_m, n, chance_cruzamento):
                                 #                MUTAÇÃO                 #
                                 ##########################################
                 
-import random
-
 def mutacao_ritmica(populacao, CHANCE_DE_MUTACAO):
     """
-    Essa função tem a chance de alterar de 3 formas diferentes a população dada previamente.
+    Essa função tem a  chance de alterar de 3 formas diferentes a população dada previamente.  
     
     Argumentos:
-    população: lista de indivíduos (lista) gerados aleatoriamente.
+    população: lista de indivíduos(lista) gerados aleatóriamente.
     CHANCE_DE_MUTACAO: float que limita a probabilidade de ocorrer uma mutação em cada indivíduo da população.
+ 
     """
-
-    notes = ['Null', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']  # Definindo as possíveis notas musicais.
-
+ 
     for individuo in populacao:
         if random.random() < CHANCE_DE_MUTACAO:
-            gene = random.randint(2, len(individuo) - 3)  # Esse intervalo de 2 a len(individuo) - 3 é para garantir espaço para mutações
-
-            # Mutação 1: Troca a nota atual por uma nova nota aleatória
-            available_notes = notes.copy()
-            available_notes.remove(individuo[gene])  # Removendo da lista de notas, a nota que correspondia originalmente a esse gene
-            individuo[gene] = random.choice(available_notes)  # Sorteando uma nota nova
-
-            # Mutação 2: Inverte uma pequena subseção do indivíduo, sem alterar o tamanho
-            subseq_start = random.randint(2, len(individuo) - 5)  # Escolher um ponto de partida seguro para a subseção
-            subseq_end = subseq_start + 3  # Tamanho fixo de 3 elementos para a inversão
-            individuo[subseq_start:subseq_end] = reversed(individuo[subseq_start:subseq_end])
-
-            # Mutação 3: Permuta duas notas, mantendo o tamanho do indivíduo
-            idx1, idx2 = random.sample(range(2, len(individuo) - 2), 2)  # Escolher dois índices distintos para permutação
-            individuo[idx1], individuo[idx2] = individuo[idx2], individuo[idx1]
-
+ 
+            gene = random.randint(2, len(individuo)-4) # Esse intervalo de 2 e -2 é para que o escopo de substituição da mutação esteja dentro do tamanho do indivíduo.
+ 
+            notes = ['Null','C', 'C#','D','D#','E','F','F#','G','G#','A','A#','B'] # Definindo as possíveis notas musicais.
+            notes.remove(individuo[gene]) # Removendo da lista de notas, a nota que correspondia originalmente a esse gene.
+ 
+            individuo[gene] = random.choice(notes) # Sorteando uma nota nova.
+ 
+            if gene+8 <= len(individuo): # Verifica para qual lado ocorrera a substituição:
+                individuo[(gene+3):(gene+8)] = individuo[(gene - 2):(gene+3)] # Substituindo os termos da frente do gene mutado, pelo gene mutado.
+            
+            elif gene+8 > len(individuo):     
+                individuo[(gene-7):(gene-2)] = individuo[(gene - 2):(gene+3)] # Substituindo os termos de trás do gene mutado, pelo gene mutado.
+ 
     return populacao
 
                 
